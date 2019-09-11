@@ -1,28 +1,25 @@
-import React from 'react';
+import React, { Fragment, useContext } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import { Layout } from 'antd';
-import NavHeader from './components/layout/Header';
-import Home from './components/pages/Home';
-import LostDetails from './components/pages/LostDetails';
-import LostList from './components/pages/LostList';
+import { GlobalContext } from './contexts/GlobalContextProvider';
 
-const { Content, Footer } = Layout;
-
+import WrappedLogin from './components/pages/Login';
+import PrivateRoute from './components/common/PrivateRoute';
+import DefaultLayout from './components/layout/DefaultLayout';
+import WrappedRegistration from './components/pages/Registration';
 
 const App = () => {
+
+  const { authContext } = useContext(GlobalContext);
+
   return (
-    <Layout className="layout">
-      <NavHeader />
-      <Content className="content">
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/losts" component={LostList} />
-          <Route exact path="/lost-details" component={LostDetails} />
-        </Switch>
-      </Content>
-      <Footer className="footer">Find-And-Lost ©2019 Created by Faisal</Footer>
-    </Layout>
+    <Fragment>
+      <Switch>
+        <Route exact path="/login" component={WrappedLogin} />
+        <Route exact path="/registration" component={WrappedRegistration} />
+        <PrivateRoute isLogin={authContext.isLogin} path="/" component={DefaultLayout} />
+      </Switch>
+    </Fragment>
   );
 }
 

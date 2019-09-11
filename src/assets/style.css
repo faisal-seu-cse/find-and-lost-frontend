@@ -77,3 +77,31 @@ code {
   text-align: center;
 }
 
+/* Login */
+
+.login_form_wrapper {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login_form {
+  width: 300px;
+  border: 1px solid #dddddd;
+  padding: 16px;
+}
+
+.login_title {
+  text-align: center;
+}
+
+.login_form_forgot {
+  float: right;
+}
+
+.login_form_button {
+  display: block;
+  width: 100%;
+}

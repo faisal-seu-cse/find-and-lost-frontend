@@ -1,11 +1,19 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Layout, Menu, Input, Button } from 'antd';
+import { GlobalContext } from '../../contexts/GlobalContextProvider';
 
 const { Header } = Layout;
 const { Search } = Input;
 
 const NavHeader = () => {
+
+    const { authContext } = useContext(GlobalContext);
+
+    const logout = () => {
+        authContext.logoutRequest();
+    }
+
     return (
         <Fragment>
             <div className="top-header">
@@ -15,7 +23,10 @@ const NavHeader = () => {
                     enterButton
                     size="large"
                 />
-                <Button size='large' type="danger">Post</Button>
+                <div>
+                    <Button size='large' type="primary">Post</Button> &nbsp;
+                    <Button onClick={logout} size='large' type="danger">Logout</Button>
+                </div>
             </div>
             <Header className="header">
                 <Menu

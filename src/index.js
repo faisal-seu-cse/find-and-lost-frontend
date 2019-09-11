@@ -7,11 +7,14 @@ import './assets/style.css';
 
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import GlobalContextProvider from './contexts/GlobalContextProvider';
 
 ReactDOM.render(
-    <BrowserRouter>
-        <App />
-    </BrowserRouter>,
+    <GlobalContextProvider>
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
+    </GlobalContextProvider>,
     document.getElementById('root')
 );
 
