@@ -18,7 +18,7 @@ const DefaultLayout = () => {
                 <Switch>
                     <Route exact path="/" component={Home} />
                     <Route exact path="/losts" component={LostList} />
-                    <Route exact path="/lost-details" component={LostDetails} />
+                    <Route exact path="/lost-details/:id" component={LostDetails} />
                 </Switch>
             </Content>
             <Footer className="footer">Find-And-Lost ©2019 Created by Faisal</Footer>
