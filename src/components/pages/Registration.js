@@ -12,6 +12,7 @@ const Registration = (props) => {
             if (!err) {
                 console.log('Received values of form: ', values);
                 userContext.addUser(values);
+                props.form.resetFields();
             }
         });
     };

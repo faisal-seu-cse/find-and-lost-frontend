@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { Form, Icon, Input, Button, Checkbox } from 'antd';
+import { Form, Icon, Input, Button } from 'antd';
 import { Redirect } from 'react-router-dom';
 import { GlobalContext } from '../../contexts/GlobalContextProvider';
 
@@ -48,13 +48,6 @@ const Login = (props) => {
                     )}
                 </Form.Item>
                 <Form.Item>
-                    {getFieldDecorator('remember', {
-                        valuePropName: 'checked',
-                        initialValue: true,
-                    })(<Checkbox>Remember me</Checkbox>)}
-                    <a className="login_form_forgot" href="#/">
-                        Forgot password
-                    </a>
                     <Button
                         type="primary"
                         htmlType="submit"

@@ -4,7 +4,7 @@ import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILED, LOGOUT_REQUEST } from "./Au
 const auth = JSON.parse(localStorage.getItem('auth'));
 export const initAuthState = auth || {
     isLogin: false,
-    token: '',
+    token: null,
     user: null,
     loading: false,
 };
@@ -19,8 +19,10 @@ export const AuthReducer = (state, action) => {
                 loading: true
             };
         case LOGIN_SUCCESS:
+            console.log(state)
             return {
                 ...state,
+                token: action.payload,
                 isLogin: true,
                 loading: false
             };
@@ -32,7 +34,8 @@ export const AuthReducer = (state, action) => {
         case LOGOUT_REQUEST:
             return {
                 ...state,
-                isLogin: false
+                isLogin: false,
+                token: null
             };
         default:
             return state;

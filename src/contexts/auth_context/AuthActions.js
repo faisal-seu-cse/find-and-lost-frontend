@@ -9,12 +9,10 @@ export const LOGOUT_REQUEST = "LOGOUT_REQUEST";
 
 /* Auth Actions */
 export const loginRequest = (dispatch, user) => {
-    console.log("from action", user);
     dispatch({ type: LOGIN_REQUEST });
 
     axios.post("http://localhost:5000/api/auth", user).then(res => {
-        console.log(res);
-        dispatch({ type: LOGIN_SUCCESS });
+        dispatch({ type: LOGIN_SUCCESS, payload: res.data });
         localStorage.setItem('auth', JSON.stringify({
             isLogin: true,
             token: res.data,

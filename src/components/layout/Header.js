@@ -24,7 +24,7 @@ const NavHeader = () => {
                     size="large"
                 />
                 <div>
-                    <Button size='large' type="primary">Post</Button> &nbsp;
+                    {/* <Link to="/post"><Button size='large' type="primary">Post</Button></Link> &nbsp; */}
                     <Button onClick={logout} size='large' type="danger">Logout</Button>
                 </div>
             </div>
@@ -42,6 +42,10 @@ const NavHeader = () => {
                     <Menu.Item key="losts">
                         Lost-Details
                     <Link to="/losts" />
+                    </Menu.Item>
+                    <Menu.Item key="post">
+                        Post
+                    <Link to="/post" />
                     </Menu.Item>
                 </Menu>
             </Header>
