@@ -26,7 +26,7 @@ const LostList = () => {
                 <List.Item>
                     <List.Item.Meta
                         avatar={<Avatar icon="user" />}
-                        title={<Link to={`/lost-details/${item._id}`}>{item._id}</Link>}
+                        title={<Link to={`/lost-details/${item.postCreator[0].name}`}>{item.postCreator[0].name}</Link>}
                         description={item.post}
                     />
                 </List.Item>
